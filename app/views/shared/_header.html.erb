@@ -1,0 +1,36 @@
+<header>
+
+	<h1>
+		<% if @draft and user_signed_in? and current_user == @draft.user %>
+			<%= best_in_place @draft, :title, as: :input, place_holder: "Project Title" %>	
+		<% elsif @draft %>
+			<%= @draft %>
+		<% elsif @draft %>
+			<%= "#{current_user.email.capitalize}'s Draft" %>
+		<% else %>
+			Who will be crowned Champion?
+		<% end %>	
+	</h1>
+
+	<nav>
+		<% if user_signed_in? %>
+		<% unless @draft %>
+			<%= link_to 'home', root_path, class: :button %> |
+		<% end %>
+
+		<% if @draft %>
+			<%= link_to('new draft', draft_index_path(@draft), class: :button, method: :post, remote: true) if @draft %> |
+		<% end %>
+
+		<% if @draft %>
+			<%= link_to('new draft', draft_index_path, class: :button, method: :post) %> |
+		<% end %>
+
+			<%= link_to 'logout', destroy_user_session_path, class: :button, method: :delete %> 
+		<% else %>
+			<%= link_to 'log in', new_user_session_path, class: :button %> |
+			<%= link_to 'sign up', new_user_registration_path, class: :button %>
+		<% end %>
+		
+	</nav>
+</header>
