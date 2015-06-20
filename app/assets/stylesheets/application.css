@@ -13,3 +13,65 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+	background-color: #000000;
+	font-family: 'Economica', sans-serif;
+	font-size: 12pt;
+	color: #47CDFE;
+}
+
+a {
+	color: #47CDFE;
+	&:visited {
+		color: #FFFFFF;
+	}
+}
+
+.gametime {
+	font-family: 'Economica';
+	color: #FFFFFF;
+	text-align: center;
+	margin: 150px 0 auto;
+	font-size: 2em;
+}
+
+.guard {
+	text-align: center;
+	font-size: 4em;
+}
+
+.players {
+ 	margin: 50px 600px;
+}
+
+.stuff {
+	font-size: 1em;
+}
+
+.categories {
+	margin-left: 100px;
+	width: 500px;
+}
+
+.cats {
+	width: 500px;
+}
+
+.submit {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.button {
+	width: 100px;
+	text-align: center;
+	margin: 10px 0 auto;
+	font-size: 2em;
+}
+
+nav {
+	float: left;
+	position: fixed;
+	top: 50px;
+}

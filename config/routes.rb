@@ -1,22 +1,9 @@
 Rails.application.routes.draw do
-  
-
-  get 'users/create'
-
-  get 'users/new'
-
-  get 'users/index'
-
-  get 'users/destroy'
 
   resources :games
 
   resources :cards
   root 'index#home'
-
-  get 'index/about'
-
-  get 'index/contact'
 
   devise_for :users
   

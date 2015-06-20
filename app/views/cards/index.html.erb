@@ -1,10 +1,9 @@
 <p id="notice"><%= notice %></p>
-    <main class="container">
 
-<h1>Select Your 5 Players</h1>
-  <%= form_tag(games_path, method: "post") do %>
+<h1 class="gametime">Select Your 5 Players</h1>
+  <%= form_tag(games_path, method: :post) do |f| %>
 
-    <table>
+    <table class="players">
       <thead>
         <tr>
           <th>Name</th>
@@ -27,18 +26,20 @@
             <td><%= card.steals %></td>
             <td><%= card.blocks %></td>
             <td><%= check_box_tag("cards[]", card.id) %></td>
-            <td><%= label_tag(:cards, "Select") %></td> 
+            <td><%= label_tag(:card, "Select") %></td> 
             <td>      
           </tr>
         <% end %>
 
       </tbody>
     </table>
-  <%=submit_tag("Draft") %>
+
+  <p class="submit">
+  <%=submit_tag "Draft", :class => "button"%>
   <% end %>
+  </p>
 
   <%= link_to "New", new_card_path %>
 
-</main>
 
 
