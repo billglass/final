@@ -3,18 +3,19 @@
 
 	<% @game.clins.each do |clin| %>
 	<ul>
-	<li><%= "#{clin.card.name}"%></li>
-	<li><%= "Scoring:" "#{clin.card.scoring}"%></li>
-	<li><%= "Rebounds:" "#{clin.card.rebounds}"%></li>
-	<li><%= "Assists:" "#{clin.card.assists}"%></li>
-	<li><%= "Steals:" "#{clin.card.steals}"%></li>
-	<li><%= "Blocks:" "#{clin.card.blocks}"%></li><br>
-</ul>
+		<li><%= image_tag clin.image.url, :class => "card_image" %></li>
+		<li><%= "#{clin.card.name}"%></li>
+		<li><%= "Scoring:" "#{clin.card.scoring}"%></li>
+		<li><%= "Rebounds:" "#{clin.card.rebounds}"%></li>
+		<li><%= "Assists:" "#{clin.card.assists}"%></li>
+		<li><%= "Steals:" "#{clin.card.steals}"%></li>
+		<li><%= "Blocks:" "#{clin.card.blocks}"%></li><br>
+	</ul>
 	<% end %>
 
 
 <ul>
-<% @card.each do |card| %>
-<li><%= "#{card.name}"%></li>
+	<% @card.each do |card| %>
+	<li><%= "#{card.name}"%></li>
 </ul>
 	<% end %>

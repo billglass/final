@@ -14,7 +14,7 @@
  *= require_self
  */
 
-body {
+body.black {
 	background-color: #000000;
 	font-family: 'Economica', sans-serif;
 	font-size: 12pt;
@@ -26,6 +26,13 @@ a {
 	&:visited {
 		color: #FFFFFF;
 	}
+}
+
+.container{
+	top: 0;
+	right: 0;
+	left: 0;
+	right: 0;
 }
 
 .gametime {
@@ -41,11 +48,17 @@ a {
 	font-size: 4em;
 }
 
+.madness{
+	text-align: center;
+	font-size: 3em;
+}
+
 .table {
-	display: inline-block;
+	width: 75%;
+	margin-left: 100px;
 	top: 0;
- 	right: 0;
- 	bottom: 0;
+	bottom: 0;
+	right: 0 auto;
 }
 
 .players {
@@ -59,6 +72,8 @@ a {
 
 tr {
 	display: inline-block;
+	width: 250px;
+	height: 300px;
 }
 
 th {
@@ -88,9 +103,14 @@ th {
 
 .button {
 	width: 100px;
+	height: 50px;
 	text-align: center;
 	margin: 10px 0 auto;
 	font-size: 2em;
+	font-family: 'Economica', sans-serif;
+	color: black;
+	background-color: #AFAFAF;
+	border-radius: 5px;
 }
 
 .card_image {
@@ -99,7 +119,16 @@ th {
 }
 
 nav {
-	float: left;
+	display: inline;
 	position: fixed;
 	top: 50px;
+	font-size: 2em;
+	color: #47CDFE;
 }
+
+nav.li{
+	float: left;
+}
+
+
+

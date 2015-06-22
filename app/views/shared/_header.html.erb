@@ -2,25 +2,26 @@
 
 <h1 class="guard">Guard Your Card</h1>
 
-	<nav class="stuff">
+	<nav>
+		<ul>
 		<% if user_signed_in? %>
 		<% unless @draft %>
-			<%= link_to 'Home ', root_path, class: :button %> |
+			<li><%= link_to 'Home ', root_path, class: :nav %></li>
 		<% end %>
 
 		<% if @draft %>
-			<%= link_to('new draft', draft_index_path(@draft), class: :button, method: :post, remote: true) if @draft %> |
+			<%= link_to('new draft', draft_index_path(@draft), class: :nav, method: :post, remote: true) if @draft %> |
 		<% end %>
 
 		<% if @draft %>
-			<%= link_to('new draft', draft_index_path, class: :button, method: :post) %> |
+			<%= link_to('new draft', draft_index_path, class: :nav, method: :post) %> |
 		<% end %>
 
-			<%= link_to ' Logout', destroy_user_session_path, class: :button, method: :delete %> 
+			<li><%= link_to ' Logout', destroy_user_session_path, class: :nav, method: :delete %></li>
 		<% else %>
-			<%= link_to 'log in', new_user_session_path, class: :button %> |
-			<%= link_to 'sign up', new_user_registration_path, class: :button %>
+			<%= link_to 'log in', new_user_session_path, class: :nav %> |
+			<%= link_to 'sign up', new_user_registration_path, class: :nav %>
 		<% end %>
-		
+		</ul>
 	</nav>
 </header>

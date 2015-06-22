@@ -1,9 +1,9 @@
 class GamesController < ApplicationController
   before_action :authenticate_user!, only: [:create]
+  # before_action :set_clin, only: [:show]
 
   def index
     @clins = Clin.all
-
   end
 
   def update
@@ -13,6 +13,7 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @card = Card.all.sample(5)
+    @clin = Clin.all
   end
 
   def new
@@ -29,7 +30,6 @@ class GamesController < ApplicationController
     params[:cards].each do |card_id|
       @clin = Clin.new
       @clin.game = @game
-      # Lookup the card associated with
       @card = Card.find(card_id)
       @clin.card = @card
       @clin.user = current_user
@@ -42,27 +42,12 @@ class GamesController < ApplicationController
       redirect_to root_path
     end
 
-
-
-    # if user is nil => CPU
-    # hold status, find clins associated w/ me from active game
-    # Figure out how turns work - counter: first turn is 1, assign player = even/odd
-
-      # array of existing opponents 
-        # Preset Opponents! opponent 1: all their cards, if every card is also an array (list of strings = stats), 
-        # random # generator to set up an opponent
-
-      # create cardling model (mocks card, has user.id)
-      # tweak code so you can associate each cardling w/ game & user
-      # how to retrieve data that has been generated
-      # get ID numbers out of array, grab data from each ID number, then you can clone
-      
-      # Create a cardling based on that card
-      # Assign to the user/game
     end
-  	#Look up Cardlings w/ Users ID = (@cardlings = Card.find(:user_id))?
-  	#Then find the card that's associated w/ Card_ID
-  	#Params[:id] => created 5 cardlings => creates association w/ game, user, card => game view
+
+
+    def set_clin
+      params.require(:clin).permit(:image, :name, :scoring, :rebounds, :assists, :steals, :blocks)
+    end
 end
 
 

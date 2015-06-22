@@ -11,18 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621203925) do
-
-  create_table "cardlings", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "scoring"
-    t.integer  "rebounds"
-    t.integer  "assists"
-    t.integer  "steals"
-    t.integer  "blocks"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20150622223727) do
 
   create_table "cards", force: :cascade do |t|
     t.string   "name"
@@ -40,12 +29,6 @@ ActiveRecord::Schema.define(version: 20150621203925) do
     t.datetime "image_updated_at"
   end
 
-  create_table "clings", force: :cascade do |t|
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "clins", force: :cascade do |t|
     t.string   "name"
     t.integer  "scoring"
@@ -54,10 +37,14 @@ ActiveRecord::Schema.define(version: 20150621203925) do
     t.integer  "steals"
     t.integer  "blocks"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "game_id"
     t.integer  "card_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "clins", ["card_id"], name: "index_clins_on_card_id"

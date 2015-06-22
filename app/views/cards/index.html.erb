@@ -1,45 +1,41 @@
 
-<p id="notice"><%= notice %></p>
-
-<h1 class="gametime">Select Your 5 Players</h1>
+<h1 class="madness">Select Your 5 Players</h1>
   <%= form_tag(games_path, method: :post) do |f| %>
 
 
-   <div>
-    <table class="players">
-      <thead class="table">
-        <tr>
-          <th>Card</th>
-          <th>Name</th>
-          <th>Scoring</th>
-          <th>Rebounds</th>
-          <th>Assists</th>
-          <th>Steals</th>
-          <th>Blocks</th>
-          <th colspan="10"></th>
-        </tr>
-      </thead>
+   <div class="container">
+    <table class="table table-hover table-condensed">
      
       <tbody>
         <% @cards.each do |card| %>
           <tr>
-            <td><%= image_tag card.image, :class => "card_image" %></td>
-          <tr class="stats">
-            <td><%= card.name %></td>
-            <td><%= card.scoring %></td>
-            <td><%= card.rebounds %></td>
-            <td><%= card.assists %></td>
-            <td><%= card.steals %></td>
-            <td><%= card.blocks %></td>
-            <td><%= check_box_tag("cards[]", card.id) %></td>
-            <td><%= label_tag(:card, "Select") %></td> 
-                 
-          </tr>
+            
+<div class="text-center example-class" data-container="body" data-template='
+<div class="popover" role="tooltip">
+  <div class="arrow"></div>
+  <div class="popover-content"></div></div>' data-toggle="popover" data-placement="left" data-content="this is a test">
+
+  <div class="text-center example-class1" data-container="body" data-template='<div class="popover1" role="tooltip">
+    <div class="arrow"></div>
+    <div class="popover-content"></div></div>' data-toggle="popover" data-placement="left" data-content="this is a test">
+
+
+
+            <td data-html="true" data-toggle="popover" data-trigger="hover" data-content="     Name: <%= card.name %><br>
+            Scoring: <%= card.scoring %><br>Rebounds: <%= card.rebounds %><br>
+            Assists: <%= card.assists %><br>
+            Steals: <%= card.steals %><br>
+            Blocks: <%= card.blocks %><br>">
+            <%= image_tag card.image, :class => "card_image" %></td>
+            <td><p><%= label_tag(:card, "Select") %>
+                   <%= check_box_tag("cards[]", card.id) %></p></td>
+        
         <% end %>
 
+           </tr>  
           </tbody>
         </table>
-  </div>
+    </div>
 
   <p class="submit">
   <%=submit_tag "Draft", :class => "button"%>

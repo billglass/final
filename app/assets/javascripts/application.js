@@ -14,18 +14,49 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(document).on("page:change", function() {
-  /* Activating Best In Place */
-  $(".best_in_place").best_in_place();
-  $(document).on('ajax:success', '.card nav', function() {
-  	$(this).closest('div').fadeOut();
-  });
-  $( "#board" ).sortable({
-  	appendTo: $('#board'),
-  	update: function() {
-  		$.post($(this).data('update-url'), 
-  		$(this).sortable('serialize'));
-  	}
-	});
+
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
 });
+
+//  $('html').on('mouseup', function(e) {
+// if(!$(e.target).closest('.popover').length) {
+//     $('.popover').each(function(){
+//         $(this.previousSibling).popover('hide');
+//     });
+//   }
+
+
+
+//   $(".trigger").mouseenter(function() {
+//     var pos = $(this).index()+1;    
+//     $(".stats").show();
+    
+//   });
+
+//   $(".stats").mouseleave(function() {
+//     $(".stats").hide();
+//   });
+
+
+
+
+
+
+// $(document).on("page:change", function() {
+//   /* Activating Best In Place */
+//   $(".best_in_place").best_in_place();
+//   $(document).on('ajax:success', '.card nav', function() {
+//   	$(this).closest('div').fadeOut();
+//   });
+//   $( "#board" ).sortable({
+//   	appendTo: $('#board'),
+//   	update: function() {
+//   		$.post($(this).data('update-url'), 
+//   		$(this).sortable('serialize'));
+//   	}
+// 	});
+// });
+
+
 
