@@ -4,7 +4,7 @@ class CardsController < ApplicationController
   def index
     @cards = Card.all
     @clin = Clin.new
-
+    
 
   end
 
@@ -13,7 +13,7 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.new
-    @card.save
+    
   end
 
   def edit
@@ -59,6 +59,6 @@ class CardsController < ApplicationController
     end
 
     def card_params
-      params.require(:card).permit(:name, :scoring, :rebounds, :assists, :steals, :blocks)
+      params.require(:card).permit(:image, :name, :scoring, :rebounds, :assists, :steals, :blocks)
     end
 end

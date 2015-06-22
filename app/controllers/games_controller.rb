@@ -7,10 +7,12 @@ class GamesController < ApplicationController
   end
 
   def update
+
   end
 
   def show
     @game = Game.find(params[:id])
+    @card = Card.all.sample(5)
   end
 
   def new
@@ -40,10 +42,15 @@ class GamesController < ApplicationController
       redirect_to root_path
     end
 
-    #if user is nil => CPU
+
+
+    # if user is nil => CPU
     # hold status, find clins associated w/ me from active game
-    # Figure out how turns work
-    
+    # Figure out how turns work - counter: first turn is 1, assign player = even/odd
+
+      # array of existing opponents 
+        # Preset Opponents! opponent 1: all their cards, if every card is also an array (list of strings = stats), 
+        # random # generator to set up an opponent
 
       # create cardling model (mocks card, has user.id)
       # tweak code so you can associate each cardling w/ game & user

@@ -41,8 +41,31 @@ a {
 	font-size: 4em;
 }
 
+.table {
+	display: inline-block;
+	top: 0;
+ 	right: 0;
+ 	bottom: 0;
+}
+
 .players {
- 	margin: 50px 600px;
+	display: inline-block;
+	width: 100%;
+ 	top: 0;
+ 	right: 0;
+ 	bottom: 0;
+ 	margin-left: 5%;
+}
+
+tr {
+	display: inline-block;
+}
+
+th {
+	display: inline-block;
+	padding: 10px;
+	margin: 0 auto;
+	height: 10px;
 }
 
 .stuff {
@@ -51,7 +74,7 @@ a {
 
 .categories {
 	margin-left: 100px;
-	width: 500px;
+	width: 1000px;
 }
 
 .cats {
@@ -68,6 +91,11 @@ a {
 	text-align: center;
 	margin: 10px 0 auto;
 	font-size: 2em;
+}
+
+.card_image {
+	width: 150px;
+	height: 180px;
 }
 
 nav {

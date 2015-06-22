@@ -1,24 +1,30 @@
+
 <p id="notice"><%= notice %></p>
 
 <h1 class="gametime">Select Your 5 Players</h1>
   <%= form_tag(games_path, method: :post) do |f| %>
 
+
+   <div>
     <table class="players">
-      <thead>
+      <thead class="table">
         <tr>
+          <th>Card</th>
           <th>Name</th>
           <th>Scoring</th>
           <th>Rebounds</th>
           <th>Assists</th>
           <th>Steals</th>
           <th>Blocks</th>
-          <th colspan="3"></th>
+          <th colspan="10"></th>
         </tr>
       </thead>
      
       <tbody>
         <% @cards.each do |card| %>
           <tr>
+            <td><%= image_tag card.image, :class => "card_image" %></td>
+          <tr class="stats">
             <td><%= card.name %></td>
             <td><%= card.scoring %></td>
             <td><%= card.rebounds %></td>
@@ -27,12 +33,13 @@
             <td><%= card.blocks %></td>
             <td><%= check_box_tag("cards[]", card.id) %></td>
             <td><%= label_tag(:card, "Select") %></td> 
-            <td>      
+                 
           </tr>
         <% end %>
 
-      </tbody>
-    </table>
+          </tbody>
+        </table>
+  </div>
 
   <p class="submit">
   <%=submit_tag "Draft", :class => "button"%>
@@ -40,6 +47,8 @@
   </p>
 
   <%= link_to "New", new_card_path %>
+
+
 
 
 
