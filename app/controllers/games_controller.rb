@@ -14,6 +14,9 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @card = Card.all.sample(5)
     @clin = Clin.all
+
+    # params[:clins].each do |clin_id|
+    # end
   end
 
   def new
@@ -45,9 +48,9 @@ class GamesController < ApplicationController
     end
 
 
-    def set_clin
-      params.require(:clin).permit(:image, :name, :scoring, :rebounds, :assists, :steals, :blocks)
-    end
+    # def set_clin
+    #   params.require(:clin).permit(:image, :name, :scoring, :rebounds, :assists, :steals, :blocks)
+    # end
 end
 
 

@@ -4,31 +4,28 @@
 
 
    <div class="container">
-    <table class="table table-hover table-condensed">
+    <table class="table table-bordered table-condensed">
      
       <tbody>
         <% @cards.each do |card| %>
           <tr>
+    
+            <td data-html="true" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="
             
-<div class="text-center example-class" data-container="body" data-template='
-<div class="popover" role="tooltip">
-  <div class="arrow"></div>
-  <div class="popover-content"></div></div>' data-toggle="popover" data-placement="left" data-content="this is a test">
-
-  <div class="text-center example-class1" data-container="body" data-template='<div class="popover1" role="tooltip">
-    <div class="arrow"></div>
-    <div class="popover-content"></div></div>' data-toggle="popover" data-placement="left" data-content="this is a test">
-
-
-
-            <td data-html="true" data-toggle="popover" data-trigger="hover" data-content="     Name: <%= card.name %><br>
-            Scoring: <%= card.scoring %><br>Rebounds: <%= card.rebounds %><br>
+            Name: <%= card.name %><br>
+            Scoring: <%= card.scoring %><br>
+            Rebounds: <%= card.rebounds %><br>
             Assists: <%= card.assists %><br>
             Steals: <%= card.steals %><br>
-            Blocks: <%= card.blocks %><br>">
-            <%= image_tag card.image, :class => "card_image" %></td>
-            <td><p><%= label_tag(:card, "Select") %>
-                   <%= check_box_tag("cards[]", card.id) %></p></td>
+            Blocks: <%= card.blocks %><br>" class="dats">
+            <%= label_tag(:card, "Select", class: "get") %>
+            <%= check_box_tag("cards[]", card.id) %>
+            <%= image_tag card.image, :class => "card_image" %>
+
+
+          </td>
+
+
         
         <% end %>
 
@@ -45,6 +42,10 @@
   <%= link_to "New", new_card_path %>
 
 
-
-
-
+<!-- // <script type="text/javascript">
+//   $(document).ready(function(){
+//     $(".card_image").click(function(){
+//       $(".dats").css("border", "1px solid #33CC33");
+//     });
+//   });
+// </script> -->

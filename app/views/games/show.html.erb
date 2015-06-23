@@ -1,21 +1,56 @@
+<head>
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+</head>
+
+<body class="court">
+
 <h1>Game <%= @game.id %></h1>
-<p></p>
 
 	<% @game.clins.each do |clin| %>
-	<ul>
-		<li><%= image_tag clin.image.url, :class => "card_image" %></li>
-		<li><%= "#{clin.card.name}"%></li>
-		<li><%= "Scoring:" "#{clin.card.scoring}"%></li>
-		<li><%= "Rebounds:" "#{clin.card.rebounds}"%></li>
-		<li><%= "Assists:" "#{clin.card.assists}"%></li>
-		<li><%= "Steals:" "#{clin.card.steals}"%></li>
-		<li><%= "Blocks:" "#{clin.card.blocks}"%></li><br>
+	<ul class="play">
+		<li class="draggable" class="ui-widget-content"><%= image_tag clin.card.image, :class=>"gameclin"%></li>
+		<li class="stats"><%= "#{clin.card.name}"%></li>
+		<li class="stats"><%= "Scoring:" "#{clin.card.scoring}"%></li>
+		<li class="stats"><%= "Rebounds:" "#{clin.card.rebounds}"%></li>
+		<li class="stats"><%= "Assists:" "#{clin.card.assists}"%></li>
+		<li class="stats"><%= "Steals:" "#{clin.card.steals}"%></li>
+		<li class="stats"><%= "Blocks:" "#{clin.card.blocks}"%></li><br>
+		<li class="total"><%= "Total Skill Points: " "#{clin.card.scoring + clin.card.rebounds + clin.card.assists + clin.card.steals + clin.card.blocks}" %></li>
 	</ul>
 	<% end %>
 
+<div class="droppable" class="ui-widget-header">
+  <p>Drop here</p>
+</div>
 
 <ul>
 	<% @card.each do |card| %>
 	<li><%= "#{card.name}"%></li>
+	<li><%= image_tag card.image, :class => "card_image" %></li>
+	<li> Name: <%= card.name %></li><br>
+  <li> Scoring: <%= card.scoring %></li><br>
+  <li> Rebounds: <%= card.rebounds %></li><br>
+  <li> Assists: <%= card.assists %></li><br>
+  <li> Steals: <%= card.steals %></li><br>
+  <li> Blocks: <%= card.blocks %></li><br>
+  <li class="total"><%= "Total Skill Points: " "#{card.scoring + card.rebounds + card.assists + card.steals + card.blocks}" %></li>
 </ul>
 	<% end %>
+
+<script>
+  $(function() {
+    $( ".draggable" ).draggable();
+    $( ".droppable" ).droppable({
+      drop: function( event, ui ) {
+        $( this )
+          .addClass( "ui-state-highlight" )
+          .find( "p" )
+            .html( "Dropped!" );
+      }
+    });
+  });
+</script>
+
+</body>
+

@@ -21,6 +21,28 @@ body.black {
 	color: #47CDFE;
 }
 
+/*body.court { 
+  background: url(images/court.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}*/
+/*video#bgvid {
+position: fixed;
+top: 50%;
+left: 50%;
+min-width: 100%;
+min-height: 100%;
+width: auto;
+height: auto;
+z-index: -100;
+-webkit-transform: translateX(-50%) translateY(-50%);
+transform: translateX(-50%) translateY(-50%);
+background: url(https://www.youtube.com/watch?v=aInOK6T6n1w) no-repeat;
+background-size: cover;
+}*/
+
 a {
 	color: #47CDFE;
 	&:visited {
@@ -54,11 +76,8 @@ a {
 }
 
 .table {
-	width: 75%;
-	margin-left: 100px;
-	top: 0;
-	bottom: 0;
-	right: 0 auto;
+	max-width: 100%;
+	margin: 0 auto;
 }
 
 .players {
@@ -72,15 +91,15 @@ a {
 
 tr {
 	display: inline-block;
-	width: 250px;
+	width: 180px;
 	height: 300px;
 }
 
-th {
+td {
 	display: inline-block;
 	padding: 10px;
-	margin: 0 auto;
-	height: 10px;
+	margin: 33px;
+	height: 220px;
 }
 
 .stuff {
@@ -118,6 +137,12 @@ th {
 	height: 180px;
 }
 
+.card_image:hover {
+	position: relative;
+	width: 300px;
+	height: 360px;
+} 
+
 nav {
 	display: inline;
 	position: fixed;
@@ -129,6 +154,36 @@ nav {
 nav.li{
 	float: left;
 }
+ 
+.popover-content { 
+	/*width: 150px;*/
 
+	color: #000;
+	background:rgba(166, 173, 166, .6); 
+	font-family: 'Economica', sans-serif;
+	font-size: 20px;
+	border: 0px solid black;
+	z-index: -1000;
+}
 
+.get {
+	margin-left: 45px;
+}
 
+#drag {
+	max-width: 100%; 
+	height: 100%; 
+	padding: 0.5em; 
+}
+
+.gameclin {
+	width: 150px;
+	height: 180px;
+}
+
+ .draggable { width: 150px; height: 150px; padding: 0.5em; color: white; }
+ .droppable { width: 300px; height: 300px; padding: 0.5em; margin: 10px; color: white; border: 5px white; }
+
+ul.play {
+	list-style-type: none;
+}
