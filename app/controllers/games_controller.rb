@@ -7,7 +7,12 @@ class GamesController < ApplicationController
   end
 
   def update
-
+    @game = Game.find(params[:id])
+    respond_to do |format|
+      @game.update(params.require(:clin).permit(:name))
+        format.html { redirect_to(@card.project, :notice => 'Game was successfully updated.') }
+        format.json { respond_with_bip(@game) }
+    end
   end
 
   def show

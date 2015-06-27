@@ -3,13 +3,20 @@
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 
-<body class="court">
+<body>
 
-<h1>Game <%= @game.id %></h1>
+
+
+<!-- <button>Next Round</button>
+<p class="will">I would like to say: </p> -->
+
+	<div class="phone">
+<div class="bill">
+<!-- <h1>Game <%= @game.id %></h1> -->
 
 	<% @game.clins.each do |clin| %>
-	<ul class="play">
-		<li class="draggable" class="ui-widget-content"><%= image_tag clin.card.image, :class=>"gameclin"%></li>
+	<div class="play">
+		<li class="draggable" class="ui-widget-content"><%= image_tag clin.card.image, :class=>"gameclin", :data => {:Skills => "#{clin.card.scoring + clin.card.rebounds + clin.card.assists + clin.card.steals + clin.card.blocks}"} %></li>
 		<li class="stats"><%= "#{clin.card.name}"%></li>
 		<li class="stats"><%= "Scoring:" "#{clin.card.scoring}"%></li>
 		<li class="stats"><%= "Rebounds:" "#{clin.card.rebounds}"%></li>
@@ -17,17 +24,48 @@
 		<li class="stats"><%= "Steals:" "#{clin.card.steals}"%></li>
 		<li class="stats"><%= "Blocks:" "#{clin.card.blocks}"%></li><br>
 		<li class="total"><%= "Total Skill Points: " "#{clin.card.scoring + clin.card.rebounds + clin.card.assists + clin.card.steals + clin.card.blocks}" %></li>
-	</ul>
+	</div>
 	<% end %>
 
-<div class="droppable" class="ui-widget-header">
-  <p>Drop here</p>
 </div>
+	<div id="userPlayer" class="playingField" data-update-url="<%= game_path(@game) %>">
+<FORM>
+<INPUT TYPE="button" onClick="history.go(0)" VALUE="Next Round!">
+</FORM>
 
-<ul>
-	<% @card.each do |card| %>
+
+
+		<div class="droppable" class="ui-widget-header">
+  		<p>Drop here</p>
+		</div>
+	
+
+	<div>
+		<p id="display"> </p>
+	</div>
+
+	<div>
+		<p id="showme"> </p>
+	</div>
+
+	<div>
+		<p id="show"> </p>
+	</div>
+	<div>
+		<h2 id="show2"> </h2>
+	</div>
+	</div>
+
+
+<div class="will">
+	<div>
+	<h3 class="lol">Opponent!</h3>
+</div>
+<% @card.each do |card| %>
+<div class="play2">
+	
 	<li><%= "#{card.name}"%></li>
-	<li><%= image_tag card.image, :class => "card_image" %></li>
+	<li><%= image_tag card.image, :title => "test", :class => "card_image", :data => {:Skills => "#{card.scoring + card.rebounds + card.assists + card.steals + card.blocks}"} %></li>
 	<li> Name: <%= card.name %></li><br>
   <li> Scoring: <%= card.scoring %></li><br>
   <li> Rebounds: <%= card.rebounds %></li><br>
@@ -35,22 +73,14 @@
   <li> Steals: <%= card.steals %></li><br>
   <li> Blocks: <%= card.blocks %></li><br>
   <li class="total"><%= "Total Skill Points: " "#{card.scoring + card.rebounds + card.assists + card.steals + card.blocks}" %></li>
-</ul>
+</div>
 	<% end %>
+</div>
+</div>
 
-<script>
-  $(function() {
-    $( ".draggable" ).draggable();
-    $( ".droppable" ).droppable({
-      drop: function( event, ui ) {
-        $( this )
-          .addClass( "ui-state-highlight" )
-          .find( "p" )
-            .html( "Dropped!" );
-      }
-    });
-  });
-</script>
+
+
+
 
 </body>
 

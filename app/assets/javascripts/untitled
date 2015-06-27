@@ -1,0 +1,30 @@
+function compare() {
+		var MyScore = 0;
+		var CPUScore = 0;
+		var opp = $(".card_image").data().skills;
+		console.log("this is your opponent " + opp)
+		console.log("this is your card " + toE)
+		if (opp > toE){
+
+			console.log("you lost")
+			document.getElementById("showme").innerHTML = ("Opponent's score: " + opp + " Your score: " + toE);
+			document.getElementById("show").innerHTML = ("you lost this Round");
+			// CPUScore++;
+			// if CPUScore == 3 {
+			// 		document.getElementById("show2").innerHTML = ("You Lost The Game\nFinal Scores\n" + "You: " + MyScore "\nCPU: " + CPUScore);
+			// }
+
+		}
+		else
+		{
+
+			console.log("you won")
+			document.getElementById("showme").innerHTML = ("Opponent's score: " + opp + " 	Your score: " + toE);
+			document.getElementById("show").innerHTML = ("you won this Round");
+			// MyScore++;
+			// if MyScore == 3 {
+			// 		document.getElementById("show2").innerHTML = ("You Lost The Game\nFinal Scores\n" + "You: " + MyScore "\nCPU: " + CPUScore);
+			// }
+		}
+	} 
+});

@@ -4,9 +4,17 @@ class CardsController < ApplicationController
   def index
     @cards = Card.all
     @clin = Clin.new
-    
-
   end
+
+  # def sort
+  #   clin = params[:clin]
+  #   clin.each_with_index do |clin, index|
+  #     Clin.find(clin).update(position: index)
+  #   end
+  #   respond_to do |format|
+  #     format.js { render nothing: true }
+  #   end
+  # end
 
   def show
   end
