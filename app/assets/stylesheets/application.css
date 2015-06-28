@@ -21,87 +21,222 @@ body.black {
 	color: #47CDFE;
 }
 
-header {
-	height: 20px;
+.header {
+	width: 100%;
+	height: 70px;
+	background-color: rgba(0, 0, 0, 0.5);
+	margin-top: 25px;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 70px;
+	background-color: rgb(0, 0, 0);
+}
+
+h4 {
+	text-align: center;
+}
+
+.guard {
+	margin: auto;
+/*	padding: 5px;
+	display: inline-block;*/
+	text-align: center;
+	color: white;
+/*	top: 10px;
+	text-shadow: 2px 1px #CDCDCA;*/
+	font-size: 3em;
+}
+
+.header-nav {
+	display: inline;
+	position: fixed;
+	top: 10px;
+	padding: 10px;
+	font-size: 2em;
+	color: #47CDFE;
+}
+
+nav ul {
+	font-size: 0;
+	padding: 0;
+}
+
+nav ul li {
+	display: inline-block;
+}
+
+nav a {
+	display: block;
+	/*color: red;*/
+	text-decoration: none;
+	background-color: black; 
+	font-size: 24px;
+	margin-top: 25px;
+	margin-left: 25px;
+}
+
+a:link, a:visited, a:hover, a:active {
+	font-family: 'Economica', sans-serif;
+	font-size: 16pt;
+	color: #47CDFE;
 }
 
 .enter {
-	margin-top: 270px;
-	margin-left: 640px;
-	width: 250px;
-	height: 300px;
-	background-color: rgba(0, 0, 0, 0.7);
+	/*display: none;*/
+	margin: auto;
+	padding-top: 30px;
+	width: 420px;
+	height: 520px;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.enter2{
+	margin: auto;
+	padding-top: 30px;
+	width: 420px;
+	height: 600px;
+	background-color: rgba(0, 0, 0, 0.6);
 }
 
 .instructions{
-	margin-left: 100px;
+	margin-left: 125px;
+	padding-bottom: 30px;
+	font-size: 2em;
+	text-shadow: 2px 1px #000;
+}
+
+.instructions2{
+	margin-left: 150px;
+	font-size: 2em;
+	text-shadow: 2px 1px #000;
 }
 
 .efields {
-	margin-left: 50px;
+	margin: auto;
 }
 
-/*#bgvid {
-	height: 500px; 
-	overflow: hidden; 
+.efields2 {
+	margin: auto;
 }
 
-#bg{
-	width:100%; 
-	height:100%;
-}*/
-/*body.court { 
-  background: url(images/court.png) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}*/
-/*video#bgvid {
-position: fixed;
-top: 50%;
-left: 50%;
-min-width: 100%;
-min-height: 100%;
-width: auto;
-height: auto;
-z-index: -100;
--webkit-transform: translateX(-50%) translateY(-50%);
-transform: translateX(-50%) translateY(-50%);
-background: url(https://www.youtube.com/watch?v=aInOK6T6n1w) no-repeat;
-background-size: cover;
-}*/
+.field {
+	display: inline-block;
+	font-size: 2em;
+	margin-left: 100px;
+	color: #000;
+}
 
-a {
+.field3 {
+	display: inline-block;
+	padding-top: 20px;
+	font-size: 2em;
+	margin-left: 100px;
+	color: #000;
+}
+
+.field2{
+	margin-left: 100px;
+	font-size: 1em;
 	color: #47CDFE;
-	&:visited {
-		color: #FFFFFF;
-	}
 }
 
-.container{
+.actions {
+	margin-top: 25px;
+	margin-left: 85px;
+}
+
+.actions2 {
+	margin-top: 30px;
+	margin-bottom: 15px;
+	margin-left: 85px;
+}
+
+.labels {
+	font-size: 18pt;
+	margin: auto;
+	text-align: center;
+	color: white;
+	text-shadow: 2px 1px #000;
+}
+
+.labels2 {
+	margin: auto;
+	text-align: center;
+	color: #47CDFE;
+	font-size: 12pt;
+	text-shadow: 2px 1px #000;
+}
+
+.labels3 {
+	margin: auto;
+	text-align: center;
+	color: #fff;
+	font-size: 18pt;
+	text-shadow: 2px 1px #000;
+}
+
+.submitting {
+	font-size: 18pt;
+	width: 200px;
+	/*padding: 10px;*/
+	background-color: black;
+	color: #47CDFE;
+	margin-left: 25px;
+}
+
+.devise-links {
+	font-size: 14pt;
+	text-align: center;
+	text-shadow: 2px 1px #000;
+}
+
+.footer-nav {
+	list-style-type: none;
+	margin-left: 550px;
+/*	margin-left: 25px;*/
+}
+
+.footer-logo{
+	display: inline-block;
+	opacity: 0.7;
+}
+
+.footer-nav li {
+	margin-top: 10px;
+	margin-left: 25px;
+}
+
+.container {
+	display: none;
 	top: 0;
 	right: 0;
 	left: 0;
 	right: 0;
 }
 
+/*.notify {
+	height: 250px;
+	width: 250px;
+	background-color: green;
+	color: white;
+}*/
+
 .gametime {
 	font-family: 'Economica';
 	color: #FFFFFF;
 	text-align: center;
-	margin: 150px 0 auto;
+	margin: auto;
 	font-size: 2em;
 }
 
-.guard {
+.madness {
+	margin-bottom: 35px;
 	text-align: center;
-	font-size: 4em;
-}
-
-.madness{
-	text-align: center;
-	font-size: 3em;
+	font-size: 2.5em;
 }
 
 .table {
@@ -146,7 +281,8 @@ td {
 
 .submit {
 	text-align: center;
-	margin: 0 auto;
+	margin: auto;
+	height: 200px;
 }
 
 .button {
@@ -171,19 +307,11 @@ td {
 	width: 300px;
 	height: 360px;
 } 
-
-nav {
-	display: inline;
-	position: fixed;
-	top: 50px;
-	font-size: 2em;
-	color: #47CDFE;
-}
-
-nav.li{
-	float: left;
-}
  
+.new-hidden {
+	display: none;
+}
+
 .popover-content { 
 	/*width: 150px;*/
 

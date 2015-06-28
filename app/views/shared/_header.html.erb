@@ -1,8 +1,10 @@
-<header>
+<header class="header">
 
-<h1 class="guard">Guard Your Card</h1>
+<h1 class="guard">NBA Guard Your Card</h1>
 
-	<nav>
+</header>
+
+	<nav class="header-nav">
 		<ul>
 		<% if user_signed_in? %>
 		<% unless @draft %>
@@ -19,9 +21,8 @@
 
 			<li><%= link_to ' Logout', destroy_user_session_path, class: :nav, method: :delete %></li>
 		<% else %>
-			<%= link_to 'log in', new_user_session_path, class: :nav %> |
-			<%= link_to 'sign up', new_user_registration_path, class: :nav %>
+			<li class="active"><%= link_to 'log in', new_user_session_path, class: :nav %></li> 
+			<li class="active"><%= link_to 'sign up', new_user_registration_path, class: :nav %></li>
 		<% end %>
 		</ul>
 	</nav>
-</header>

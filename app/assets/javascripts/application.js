@@ -15,7 +15,13 @@
 //= require jquery-ui
 //= require turbolinks
 // //= require_tree .
+
 // $( document ).ready(function() {
+//  $('.enter').fadeIn(4000).removeClass('hidden');
+
+// });
+
+
 
 var toE;
 var toF;
@@ -23,6 +29,16 @@ var toF;
 // $(document).ready(function(){
 //   $('[data-toggle="popover"]').popover();
 // });
+$(document).ready(function(){
+  $(".container").fadeIn(2500).removeClass('hidden');
+});
+
+$('#test').html('<img src="/static/on.png" height="64px" width="64px">');
+
+
+
+
+
 
 
 //How do I show only 1 out of the 5 cards at a time (with hide/show on droppable), and then play the card that is displayed?

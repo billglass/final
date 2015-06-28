@@ -1,5 +1,40 @@
+<h1 class="madness">Select Your 5 Players</h1>
+  <%= form_tag(games_path, method: :post) do |f| %>
 
 
-<p class="gametime">
-<%= link_to "Start New Game!", cards_path %>
+<!-- <p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p> -->
+   <div class="container">
+    <table class="table">
+     
+      <tbody>
+        <% @cards.each do |card| %>
+          <tr>
+    
+            <td data-html="true" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="
+            
+            Name: <%= card.name %><br>
+            Scoring: <%= card.scoring %><br>
+            Rebounds: <%= card.rebounds %><br>
+            Assists: <%= card.assists %><br>
+            Steals: <%= card.steals %><br>
+            Blocks: <%= card.blocks %><br>" class="dats">
+
+            <%= label_tag(:card, "Select", class: "get") %>
+            <%= check_box_tag("cards[]", card.id) %>
+            <%= image_tag card.image, :class => "card_image" %>
+
+          </td>
+        <% end %>
+       </tr>  
+     	</tbody>
+    </table>
+
+  <p class="submit">
+	  <%=submit_tag "Draft", :class => "button"%>
+	  <% end %>
+  </p>
+
+<p class="new-hidden">
+  <%= link_to "New", new_card_path %>
 </p>
