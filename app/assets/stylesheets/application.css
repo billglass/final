@@ -25,7 +25,7 @@ body.black {
 	width: 100%;
 	height: 70px;
 	background-color: rgba(0, 0, 0, 0.5);
-	margin-top: 25px;
+
 }
 
 .footer {
@@ -34,6 +34,7 @@ body.black {
 	width: 100%;
 	height: 70px;
 	background-color: rgb(0, 0, 0);
+	z-index: 1000;
 }
 
 h4 {
@@ -42,6 +43,7 @@ h4 {
 
 .guard {
 	margin: auto;
+	padding-top: 10px;
 /*	padding: 5px;
 	display: inline-block;*/
 	text-align: center;
@@ -54,8 +56,8 @@ h4 {
 .header-nav {
 	display: inline;
 	position: fixed;
-	top: 10px;
-	padding: 10px;
+	top: 0px;
+	padding: 5px;
 	font-size: 2em;
 	color: #47CDFE;
 }
@@ -77,6 +79,24 @@ nav a {
 	font-size: 24px;
 	margin-top: 25px;
 	margin-left: 25px;
+}
+
+.modal-body{
+	background-color: rgba(0, 0, 0, 0.5)
+}
+
+.modal-title {
+ color: black;
+}
+
+.btn /*btn-info btn-lg*/{
+	float: right;
+	margin-top: -50px;
+	margin-right: 25px;
+}
+
+.btnClose {
+	color: black;
 }
 
 a:link, a:visited, a:hover, a:active {
@@ -218,12 +238,23 @@ a:link, a:visited, a:hover, a:active {
 	right: 0;
 }
 
-/*.notify {
-	height: 250px;
-	width: 250px;
-	background-color: green;
-	color: white;
-}*/
+.selection {
+
+}
+
+.magictrick {
+	/*float: right;*/
+	position: fixed;
+	font-family: 'Economica';
+	font-size: 18pt;
+	color: #fff;
+	margin-left: 20px;
+	margin-bottom: 10px;
+	padding: 5px;
+	border: 2px solid #47CDFE;
+	line-height: 50px;
+	background-color: rgba(40, 40, 40, 0.8);
+}
 
 .gametime {
 	font-family: 'Economica';
@@ -300,6 +331,7 @@ td {
 .card_image {
 	width: 150px;
 	height: 180px;
+/*	margin-bottom: px;*/
 }
 
 .card_image:hover {
@@ -313,8 +345,7 @@ td {
 }
 
 .popover-content { 
-	/*width: 150px;*/
-
+	width: 150px;
 	color: #000;
 	background:rgba(166, 173, 166, .6); 
 	font-family: 'Economica', sans-serif;
@@ -325,6 +356,8 @@ td {
 
 .get {
 	margin-left: 45px;
+	font-family: 'Economica';
+	font-size: 14pt;
 }
 
 #drag {
@@ -338,15 +371,26 @@ td {
 	height: 180px;
 }
 
- .draggable { width: 150px; height: 150px; padding: 0.5em; color: white; }
- .droppable { 
+.draggable { 
+ 	width: 150px; 
+ 	height: 150px; 
+ 	padding: 0.5em; 
+	color: white; 
+}
+
+.droppable { 
  	width: 300px; 
  	height: 300px; 
- 	padding: 0.5em; 
- 	margin: 10px; 
+ 	margin-left: 0px; 
+	margin-bottom: 20px;
  	color: white; 
  	border: 2px solid white;
- }
+}
+
+.drop-item{
+	text-align: center;
+	margin-top: 125px;
+}
 
 ul.play {
 	list-style-type: none;
@@ -356,15 +400,38 @@ ul.play {
 	display: inline-block;
 }
 
+.team {
+	margin-left: 45px;
+}
+
 .bill {
+	display: inline-block;
 	float:left;
 	width: 200px;
 }
 
 .will {
+	display: inline-block;
 	float: right;
 	width:200px;
 	margin-left: 50px;
+	padding-bottom: 50px;
+}
+
+.cpu-card{
+ 	width: 150px; 
+ 	height: 180px; 
+}
+
+.gameon {
+	list-style-type: none;
+	margin-bottom: 25px;
+	padding: 10px;
+}
+
+.gameon2{
+	list-style-type: none;
+	margin-bottom: 25px;
 }
 
 .phone {
@@ -373,7 +440,108 @@ ul.play {
 	margin-left: auto;
 }
 
+#display {
+	font-family: 'Economica', sans-serif;
+	font-size: 16pt;
+	margin-left: 60px;
+}
+
+#showme {
+	font-family: 'Economica', sans-serif;
+	font-size: 16pt;
+	margin-left: 60px;
+}
+
+#show {
+	font-family: 'Economica', sans-serif;
+	font-size: 18pt;
+	margin-left: 125px;
+	color: red;
+/*	text-shadow: 2px 2px black;*/
+}
+
+#show2 {
+	font-family: 'Economica', sans-serif;
+	font-size: 36pt;
+	width: 300px;
+	margin: auto;
+	text-align: center;
+	color: red;
+}
+
+/*@font-face { 
+	font-family: 'DS-Digital'; 
+	src: url('/assets/ds_digital/DS-DIGI.TTF');
+} */
+
+@font-face { 
+font-family: 'DS-Digital'; 
+src: url("<%= asset_path ('DS-DIGI.TTF') %>"); 
+}
+
+#scoreboard {
+	width: 400px;
+	height: 300px;
+}
+
+#scoreboardcheck{
+	margin-top: 30px;
+	height: 500px;
+}
+
+#counter {
+	font-family: 'Economica', sans-serif;
+	font-size: 24pt;
+	width: 250px;
+	margin-left: 28px;
+}
+
+#counter2 {
+	display: inline-block;
+	width: 75px;
+	height: 80px;
+	font-size: 32pt;
+	margin-left: 75px;
+	padding-top: 30px;
+	padding-left: 25px;
+	letter-spacing: 50px;
+	font-family: 'DS-Digital';
+	text-shadow: 3px 3px #42000B;
+	color: #FFD712;
+	border: 2px solid #8E0000;
+	background-color: rgba(0, 0, 0, 0.5)
+}
+
+#counter3 {
+	display: inline-block;
+	width: 75px;
+	height: 80px;
+	font-size: 32pt;
+	margin-left: 0px;
+	padding-top: 30px;
+	padding-left: 25px;
+	letter-spacing: 50px;
+	font-family: 'DS-Digital';
+	text-shadow: 3px 3px #42000B;
+	color: #FFD712;
+	border: 2px solid #8E0000;
+	background-color: rgba(0, 0, 0, 0.5)
+}
+
+/*#counter4 {
+	color: #FFD712;
+	font-family: 'DS-Digital';
+	font-size: 22pt;
+	margin-left: 75px;
+}*/
+
+.new-game {
+	margin: auto;
+	padding-top: 10px;
+	text-align: center;
+}
+
 .playingField {
-	margin-top: 120px;
-	margin-left: 120px;
+	margin-top: 30px;
+	margin-left: 150px;
 }

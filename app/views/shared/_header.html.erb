@@ -8,21 +8,14 @@
 		<ul>
 		<% if user_signed_in? %>
 		<% unless @draft %>
-			<li><%= link_to 'Home ', root_path, class: :nav %></li>
+			<li><%= link_to 'Home ', root_path, method: :get, class: :nav %></li>
 		<% end %>
-
-		<% if @draft %>
-			<%= link_to('new draft', draft_index_path(@draft), class: :nav, method: :post, remote: true) if @draft %> |
-		<% end %>
-
-		<% if @draft %>
-			<%= link_to('new draft', draft_index_path, class: :nav, method: :post) %> |
-		<% end %>
-
+		
 			<li><%= link_to ' Logout', destroy_user_session_path, class: :nav, method: :delete %></li>
 		<% else %>
 			<li class="active"><%= link_to 'log in', new_user_session_path, class: :nav %></li> 
 			<li class="active"><%= link_to 'sign up', new_user_registration_path, class: :nav %></li>
 		<% end %>
 		</ul>
+		
 	</nav>

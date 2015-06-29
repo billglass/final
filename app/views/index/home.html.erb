@@ -1,33 +1,70 @@
-<h1 class="madness">Select Your 5 Players</h1>
+<head>
+<style>
+  body { 
+	  background-image: url("<%= asset_path ('dots.png') %>") ; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	}
+
+	@keyframes animatedBackground {
+		from { background-position: 0 0; }
+		to { background-position: 100% 0; }
+	}
+
+#animate-area	{ 
+	width: 100%; 
+	height: 100%; 
+	background-image: url("<%= asset_path ('dots.png') %>");
+	background-position: 0px 0px;
+	background-repeat: repeat-x;
+
+	animation: animatedBackground 350s linear infinite;
+}
+
+</style>
+<script>
+  var cardName = "<%= @cards.name %>";
+
+ $(document).ready(function(){
+ $(".selection").click(function(){
+     $(".magictrick").append($(this).parent().data('cardName') + "<br />");
+   });
+});
+
+</script>
+
+</head>
+
+
+
+<body id="animate-area">
+
+
+<h1 class="madness">Draft Your Team</h1>
   <%= form_tag(games_path, method: :post) do |f| %>
 
+<p class="magictrick">Your Roster:<br>
+</p>
 
 <!-- <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p> -->
    <div class="container">
     <table class="table">
      
-      <tbody>
-        <% @cards.each do |card| %>
-          <tr>
-    
-            <td data-html="true" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="
-            
-            Name: <%= card.name %><br>
-            Scoring: <%= card.scoring %><br>
-            Rebounds: <%= card.rebounds %><br>
-            Assists: <%= card.assists %><br>
-            Steals: <%= card.steals %><br>
-            Blocks: <%= card.blocks %><br>" class="dats">
+     <tbody>
+       <% @cards.each do |card| %>
+	      <tr>
+	      	<%= content_tag(:td, {data: { html: true, toggle: "popover", placement: "bottom", trigger: "hover", card_name: card.name, card_scoring: card.scoring}}) do %>
 
-            <%= label_tag(:card, "Select", class: "get") %>
-            <%= check_box_tag("cards[]", card.id) %>
-            <%= image_tag card.image, :class => "card_image" %>
-
-          </td>
-        <% end %>
-       </tr>  
-     	</tbody>
+		      <%= label_tag(:card, "Select", class: "get") %>
+		      <%= check_box_tag("cards[]", card.id, nil,  class: "selection") %>
+		      <%= image_tag card.image, :class => "card_image" %>
+	        <% end %>
+	      </tr>
+	      <% end %>  
+     </tbody>
     </table>
 
   <p class="submit">
@@ -38,3 +75,5 @@
 <p class="new-hidden">
   <%= link_to "New", new_card_path %>
 </p>
+
+</body>

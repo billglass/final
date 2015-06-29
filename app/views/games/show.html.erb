@@ -1,78 +1,155 @@
 <head>
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <style>
+  	body { 
+		  background-image: url("<%= asset_path ('court.jpg') %>"); 
+			position: relative;
+		  -webkit-background-size: cover;
+		  -moz-background-size: cover;
+		  -o-background-size: cover;
+		  background-size: cover;
+}
+
+  </style>
 </head>
 
 <body>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Instructions</button>
 
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Instructions</h4>
+        </div>
+        <div class="modal-body">
+          <p>Your players will match up one vs. one against the computer. Select the first card (cards must selected in order) to play. First user to win 3 out of 5 rounds wins the game!</p><br>
+          <h4 class="modal-title">Player Skill Points</h4><br>
+          <p>Andrew Bogut: 32</p>
+          <p>Anthony Davis: 37</p>
+          <p>Andre Drummond: 32</p>
+          <p>Al Horford: 28</p>
+          <p>Andrew Wiggins: 28</p>
+          <p>Blake Griffin: 30</p>
+          <p>Brook Lopez: 27</p>
+          <p>Chris Bosh: 31</p>
+          <p>Chris Paul: 31</p>
+          <p>Dwight Howard: 34</p>
+          <p>Damian Lillard: 25</p>
+          <p>Dirk Nowitzki: 27</p>
+          <p>Derrick Rose: 28</p>
+          <p>Dwayne Wade: 29</p>
+          <p>Giannis Antetokounmpo: 33</p>
+          <p>Andre Iguodala: 31</p>
+          <p>Jimmy Butler: 31</p>
+          <p>James Harden: 29</p>
+          <p>Joakim Noah: 35</p>
+          <p>John Wall: 34</p>
+          <p>Kevin Durant: 35</p>
+          <p>Kemba Walker: 25</p>
+          <p>Klay Thompson: 29</p>
+          <p>Kawhi Leonard: 34</p>
+          <p>Kevin Love: 28</p>
+          <p>Kobe Bryant: 25</p>
+          <p>Lamarcus Aldridge: 29</p>
+          <p>Lebron James: 39</p>
+          <p>Mike Conley: 26</p>
+          <p>Carmelo Anthony: 27</p>
+          <p>Marc Gasol: 36</p>
+          <p>Pau Gasol: 27</p>
+          <p>Paul George: 31</p>
+          <p>Paul Pierce: 24</p>
+          <p>Ricky Rubio: 28</p>
+          <p>Russell Westbrook: 34</p>
+          <p>Stephen Curry: 31</p>
+          <p>Shaun Livingston: 27</p>
+          <p>Tony Parker: 25</p>
+          <p>Zach Randolph: 30</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btnClose btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+	<p class="new-game"><%= link_to "New Game", root_path, method: :get %></p>
+</div>
 
+<div>
+	<h2 id="show2"> </h2>
+</div>
 
 <!-- <button>Next Round</button>
 <p class="will">I would like to say: </p> -->
 
-	<div class="phone">
-<div class="bill">
+<div class="phone">
+	<div class="bill">
+		<h3 class="team">Home Team</h3>
 <!-- <h1>Game <%= @game.id %></h1> -->
 
 	<% @game.clins.each do |clin| %>
 	<div class="play">
-		<li class="draggable" class="ui-widget-content"><%= image_tag clin.card.image, :class=>"gameclin", :data => {:Skills => "#{clin.card.scoring + clin.card.rebounds + clin.card.assists + clin.card.steals + clin.card.blocks}"} %></li>
-		<li class="stats"><%= "#{clin.card.name}"%></li>
-		<li class="stats"><%= "Scoring:" "#{clin.card.scoring}"%></li>
-		<li class="stats"><%= "Rebounds:" "#{clin.card.rebounds}"%></li>
-		<li class="stats"><%= "Assists:" "#{clin.card.assists}"%></li>
-		<li class="stats"><%= "Steals:" "#{clin.card.steals}"%></li>
-		<li class="stats"><%= "Blocks:" "#{clin.card.blocks}"%></li><br>
-		<li class="total"><%= "Total Skill Points: " "#{clin.card.scoring + clin.card.rebounds + clin.card.assists + clin.card.steals + clin.card.blocks}" %></li>
+		<ul class="gameon">
+			<li class="draggable" class="ui-widget-content"><%= image_tag clin.card.image, :class=>"gameclin", :data => {:Skills => "#{clin.card.scoring + clin.card.rebounds + clin.card.assists + clin.card.steals + clin.card.blocks}"} %></li><br>
+
+		</ul>
+
 	</div>
 	<% end %>
 
 </div>
 	<div id="userPlayer" class="playingField" data-update-url="<%= game_path(@game) %>">
-<FORM>
-<INPUT TYPE="button" onClick="history.go(0)" VALUE="Next Round!">
-</FORM>
-
-
 
 		<div class="droppable" class="ui-widget-header">
-  		<p>Drop here</p>
+  		<p class="drop-item">Drop here</p>
 		</div>
 	
 
-	<div>
-		<p id="display"> </p>
-	</div>
+		<div>
+			<p id="display"> </p>
+		</div>
 
-	<div>
-		<p id="showme"> </p>
-	</div>
+		<div>
+			<p id="showme"> </p><br>
+		</div>
 
-	<div>
-		<p id="show"> </p>
-	</div>
-	<div>
-		<h2 id="show2"> </h2>
-	</div>
+		<div>
+			<p id="show"> </p><br>
+		</div>
+
+		<div id="scoreboard">
+			<div>
+				<p id="counter"> </p>
+			</div>
+			<div id="scoreboardcheck">
+				<p><span id="counter2"> </span>
+				<span id="counter3"> </span></p>
+			</div>
+
+		</div>
+
 	</div>
 
 
 <div class="will">
 	<div>
-	<h3 class="lol">Opponent!</h3>
-</div>
+		<h3 class="team">Away Team</h3>
+	</div>
+
 <% @card.each do |card| %>
 <div class="play2">
-	
-	<li><%= "#{card.name}"%></li>
-	<li><%= image_tag card.image, :title => "test", :class => "card_image", :data => {:Skills => "#{card.scoring + card.rebounds + card.assists + card.steals + card.blocks}"} %></li>
-	<li> Name: <%= card.name %></li><br>
-  <li> Scoring: <%= card.scoring %></li><br>
-  <li> Rebounds: <%= card.rebounds %></li><br>
-  <li> Assists: <%= card.assists %></li><br>
-  <li> Steals: <%= card.steals %></li><br>
-  <li> Blocks: <%= card.blocks %></li><br>
-  <li class="total"><%= "Total Skill Points: " "#{card.scoring + card.rebounds + card.assists + card.steals + card.blocks}" %></li>
+	<ul class="gameon">
+		
+		<li><%= image_tag card.image, :title => "test", :class => "card_image", :data => {:Skills => "#{card.scoring + card.rebounds + card.assists + card.steals + card.blocks}"} %></li>
+	</ul>
+
+
 </div>
 	<% end %>
 </div>

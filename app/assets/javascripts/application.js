@@ -13,43 +13,27 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require turbolinks
-// //= require_tree .
 
-// $( document ).ready(function() {
-//  $('.enter').fadeIn(4000).removeClass('hidden');
-
-// });
+//= require_tree .
 
 
+$(document).ready(function(){
+  $(".container").fadeIn(1500).removeClass('hidden');
+});
+ 
+//How do I show only 1 out of the 5 cards at a time (with hide/show on droppable), and then play the card that is displayed?
+//data attr: cpu/id - look for card that got played, hide it only...
 
 var toE;
 var toF;
-
-// $(document).ready(function(){
-//   $('[data-toggle="popover"]').popover();
-// });
-$(document).ready(function(){
-  $(".container").fadeIn(2500).removeClass('hidden');
-});
-
-$('#test').html('<img src="/static/on.png" height="64px" width="64px">');
-
-
-
-
-
-
-
-//How do I show only 1 out of the 5 cards at a time (with hide/show on droppable), and then play the card that is displayed?
-//data attr: cpu/id - look for card that got played, hide it only...
 
 $(function() {
   $( ".draggable" ).draggable();
   $( ".droppable" ).droppable({
     drop: function( event, ui ) {
 
-
+      // helper: 'clone', 
+       // cursor: 'pointer',
       // $( this )
       //   .addClass( "ui-state-highlight" )
       //   .find( "p" )
@@ -57,7 +41,7 @@ $(function() {
       //     $( ".droppable" ).submit();
       console.log(event.toElement)
       console.log(event.toElement.getAttribute("data-skills"))
-      document.getElementById("display").innerHTML = ("Total Skill Points: " + event.toElement.getAttribute("data-skills")); 
+      document.getElementById("display").innerHTML = ("Your Total Skill Points: " + event.toElement.getAttribute("data-skills")); 
       toE = event.toElement.getAttribute("data-skills")
       compare();
     }
@@ -75,11 +59,15 @@ $(function() {
 		if (opp >= toE){
 
 			console.log("you lost")
-			document.getElementById("showme").innerHTML = ("Opponent's score: " + opp + " Your score: " + toE);
-			document.getElementById("show").innerHTML = ("you lost")
+			document.getElementById("showme").innerHTML = ("Opponent's Total Skill Points: " + opp);
+			document.getElementById("show").innerHTML = ("You Lose")
 				++CPUScore;
+      document.getElementById("counter").innerHTML = ("Home Team " + " | " + " Away Team ")
+      document.getElementById("counter2").innerHTML = (" " + MyScore )
+      document.getElementById("counter3").innerHTML = (" " + CPUScore);
+
 			if (CPUScore == 3) {
-					document.getElementById("show2").innerHTML = ("You Lost The Game. Final Scores You: " + MyScore + " CPU: " + CPUScore);
+					document.getElementById("show2").innerHTML = ("Game Over");
 		}
 		$(".play:first").remove();
 		$(".play2:first").remove();
@@ -89,11 +77,14 @@ $(function() {
 		}else{
 
 			console.log("you won")
-			document.getElementById("showme").innerHTML = ("Opponent's score: " + opp + " 	Your score: " + toE);
-			document.getElementById("show").innerHTML = ("you won");
+			document.getElementById("showme").innerHTML = ("Opponent's Total Skill Points: " + opp);
+			document.getElementById("show").innerHTML = ("You Win");
 			++MyScore;
+      document.getElementById("counter").innerHTML = ("Home Team " + " | " + " Away Team ")
+      document.getElementById("counter2").innerHTML = (" " + MyScore)
+      document.getElementById("counter3").innerHTML = (" " + CPUScore);
 			if (MyScore == 3) {
-					document.getElementById("show2").innerHTML = ("You Won The Game! Final Scores You: " + MyScore + " CPU: " + CPUScore);
+					document.getElementById("show2").innerHTML = ("You Won The Game!");
 			}
 		$(".play:first").remove();
 		$(".play2:first").remove();
