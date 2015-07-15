@@ -24,12 +24,27 @@
 }
 
 </style>
-<script>
-  var cardName = "<%= @cards.name %>";
 
+<script>
+
+  var cardName = "<%= @cards.name %>";
  $(document).ready(function(){
+ 	var clicked = '';
  $(".selection").click(function(){
-     $(".magictrick").append($(this).parent().data('cardName') + "<br />");
+
+     var taco = $(this).parent().data('cardName')
+     //debugger
+     	if( this.checked !== true){
+     		// console.log("does not contain card")
+     		// console.log(taco)
+     		var playa_id =  $(this).val()
+     		//debugger
+     		 $('.magictrick').find('li[id="'+ playa_id + '"]').remove()
+     	
+     	}else{
+     		// console.log($(this).val())
+     		$(".magictrick").append( '<li id="' + $(this).val() + '">' + $(this).parent().data('cardName') + "</li>")
+     	}
    });
 });
 
@@ -37,30 +52,32 @@
 
 </head>
 
-
-
 <body id="animate-area">
 
 
 <h1 class="madness">Draft Your Team</h1>
   <%= form_tag(games_path, method: :post) do |f| %>
 
-<p class="magictrick">Your Roster:<br>
-</p>
+<ul class="magictrick">Your Roster:<br>
+	
+</ul>
 
-<!-- <p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p> -->
    <div class="container">
     <table class="table">
      
      <tbody>
        <% @cards.each do |card| %>
 	      <tr>
-	      	<%= content_tag(:td, {data: { html: true, toggle: "popover", placement: "bottom", trigger: "hover", card_name: card.name, card_scoring: card.scoring}}) do %>
+	      	<%= content_tag(:td, {data: { html: true, player_id: card.id, toggle: "popover", placement: "bottom", trigger: "hover", card_name: card.name, card_scoring: card.scoring}}) do %>
 
 		      <%= label_tag(:card, "Select", class: "get") %>
 		      <%= check_box_tag("cards[]", card.id, nil,  class: "selection") %>
 		      <%= image_tag card.image, :class => "card_image" %>
+
+
+		      <div class="card-name">
+		      	<%= card.name %> 
+		      </div> 
 	        <% end %>
 	      </tr>
 	      <% end %>  
@@ -68,7 +85,7 @@
     </table>
 
   <p class="submit">
-	  <%=submit_tag "Draft", :class => "button"%>
+	  <%= submit_tag "Draft", :class => "button"%>
 	  <% end %>
   </p>
 

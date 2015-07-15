@@ -44,13 +44,16 @@ h4 {
 .guard {
 	margin: auto;
 	padding-top: 10px;
-/*	padding: 5px;
-	display: inline-block;*/
 	text-align: center;
 	color: white;
-/*	top: 10px;
-	text-shadow: 2px 1px #CDCDCA;*/
 	font-size: 3em;
+}
+
+.card-name {
+	text-align: center;
+	font-family: 'Economica', sans-serif;
+	font-size: 12pt;
+	color: #47CDFE;
 }
 
 .header-nav {
@@ -82,11 +85,12 @@ nav a {
 }
 
 .modal-body{
-	background-color: rgba(0, 0, 0, 0.5)
+	background-color: rgb(0, 0, 0);
+	color: #fff;
 }
 
 .modal-title {
- color: black;
+ color: #47CDFE;
 }
 
 .btn /*btn-info btn-lg*/{
@@ -244,6 +248,7 @@ a:link, a:visited, a:hover, a:active {
 
 .magictrick {
 	/*float: right;*/
+	list-style-type: none;
 	position: fixed;
 	font-family: 'Economica';
 	font-size: 18pt;
@@ -295,6 +300,10 @@ td {
 	padding: 10px;
 	margin: 33px;
 	height: 220px;
+}
+
+.pname {
+	text-align: center;
 }
 
 .stuff {
@@ -444,20 +453,22 @@ ul.play {
 	font-family: 'Economica', sans-serif;
 	font-size: 16pt;
 	margin-left: 60px;
+		text-shadow: 2px 2px black;
 }
 
 #showme {
 	font-family: 'Economica', sans-serif;
 	font-size: 16pt;
 	margin-left: 60px;
+		text-shadow: 2px 2px black;
 }
 
 #show {
 	font-family: 'Economica', sans-serif;
 	font-size: 18pt;
-	margin-left: 125px;
+	margin-left: 85px;
 	color: red;
-/*	text-shadow: 2px 2px black;*/
+	text-shadow: 2px 2px black;
 }
 
 #show2 {
@@ -482,6 +493,7 @@ src: url("<%= asset_path ('DS-DIGI.TTF') %>");
 #scoreboard {
 	width: 400px;
 	height: 300px;
+		text-shadow: 2px 2px black;
 }
 
 #scoreboardcheck{

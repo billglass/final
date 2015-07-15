@@ -5,7 +5,6 @@ class IndexController < ApplicationController
   end
 
   def home
-
   	@cards = Card.all
     @clins = Clin.all
   end

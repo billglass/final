@@ -18,6 +18,7 @@
             Assists: <%= card.assists %><br>
             Steals: <%= card.steals %><br>
             Blocks: <%= card.blocks %><br>" class="dats">
+            
             <%= label_tag(:card, "Select", class: "get") %>
             <%= check_box_tag("cards[]", card.id) %>
             <%= image_tag card.image, :class => "card_image" %>

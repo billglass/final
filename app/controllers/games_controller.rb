@@ -19,9 +19,6 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @card = Card.all.sample(5)
     @clin = Clin.all
-
-    # params[:clins].each do |clin_id|
-    # end
   end
 
   def new
@@ -33,7 +30,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.create(user: current_user)
+     @game = Game.create(user: current_user)
 
     params[:cards].each do |card_id|
       @clin = Clin.new
@@ -44,18 +41,12 @@ class GamesController < ApplicationController
       @clin.save
     end
 
-    if @game.save
-      redirect_to game_path(@game), render: "New Game Created!"
-    else 
-      redirect_to root_path
-    end
-
-    end
-
-
-    # def set_clin
-    #   params.require(:clin).permit(:image, :name, :scoring, :rebounds, :assists, :steals, :blocks)
-    # end
+      if @game.save
+        redirect_to game_path(@game), render: "New Game Created!"
+      else 
+        redirect_to root_path
+      end
+  end
 end
 
 
