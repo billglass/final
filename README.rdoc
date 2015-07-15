@@ -1,31 +1,17 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+NBA Guard Your Card
 
-Things you may want to cover:
+-Using Ruby on Rails 4.2.1, users can draft a team of 5 from 40 NBA players. 
 
-* Ruby version
+-Each player has Total Skill Points, based on the following categories: Scoring, Rebounding, Assists, Steals and Blocks. Each player is assigned a score 1-10 in each of these categories, based on how much basketball I watch. Total Skill Points are the sum of these categories.
 
-* System dependencies
+-Users are matched up against 5 randomly selected cards. 
 
-* Configuration
+-Using jQuery draggable/droppable, when a user drops their card, their Total Skill Points will be compared to a randomly selected CPU card. 
 
-* Database creation
+-The winner of the round has the higher Total Skill Points. The winner of the game wins 3 out of 5 rounds. 
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
 
 
 
