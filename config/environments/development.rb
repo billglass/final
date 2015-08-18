@@ -36,14 +36,6 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  config.paperclip_defaults = {
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket => ENV['nbacard'],
-    :access_key_id => ENV['AKIAISEDNIQADVTG24AA'],
-    :secret_access_key => ENV['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']
-  }
-}
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

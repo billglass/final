@@ -23,9 +23,4 @@ module FinalProj
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end
-
-  AWS::S3::Base.establish_connection!(
- :access_key_id   => ENV['AKIAISEDNIQADVTG24AA'],
- :secret_access_key => ENV['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']
-)
 end
