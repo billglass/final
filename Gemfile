@@ -34,6 +34,8 @@ gem 'best_in_place', '~> 3.0.1'
 gem 'jquery-ui-rails'
 
 gem "paperclip", "~> 4.2"
+
+gem 'aws-sdk'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
