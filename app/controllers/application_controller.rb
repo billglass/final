@@ -4,4 +4,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  AWS::S3::Base.establish_connection!(
+ :access_key_id   => ENV['AKIAISEDNIQADVTG24AA'],
+ :secret_access_key => ENV['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']
+)
 end
